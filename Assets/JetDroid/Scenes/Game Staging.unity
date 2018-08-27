@@ -1820,6 +1820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20b55f72906d6f488604c18314d84a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debris: {fileID: 114941187370541436, guid: 628006d355defe043a71656c62e3137e, type: 2}
+  totalDebris: 10
 --- !u!1 &488336958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,11 +3707,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4048371982670640, guid: 628006d355defe043a71656c62e3137e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 187.1
       objectReference: {fileID: 0}
     - target: {fileID: 4048371982670640, guid: 628006d355defe043a71656c62e3137e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 4048371982670640, guid: 628006d355defe043a71656c62e3137e, type: 2}
       propertyPath: m_LocalPosition.z
