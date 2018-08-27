@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    /* Normalizes Player Controls */
 
     public Vector2 moving;
 
