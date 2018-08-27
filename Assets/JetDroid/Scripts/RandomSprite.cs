@@ -10,6 +10,7 @@ public class RandomSprite : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        // If currentSprite value not hard set, randomly generated
         if(currentSprite == -1)
         {
             currentSprite = Random.Range(0, sprites.Length);
