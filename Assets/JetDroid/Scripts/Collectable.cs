@@ -14,9 +14,9 @@ public class Collectable : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D target)
     {
-        if(collision.gameObject.tag == "Player")
+        if(target.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }
