@@ -12,15 +12,16 @@ public class Player : MonoBehaviour {
     public bool standing = true;
     public float standingThreshold = 4.0f;
 
-
     // Private Fields
     private Rigidbody2D body2D;
     private SpriteRenderer renderer2D;
+    private PlayerController controller;
 
 	// Use this for initialization
 	void Start () {
         body2D = GetComponent<Rigidbody2D>();
         renderer2D = GetComponent<SpriteRenderer>();
+        controller = GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -30,30 +31,24 @@ public class Player : MonoBehaviour {
         var forceX = 0f;
         var forceY = 0f;
 
-        if (Input.GetKey("right"))
+        if (controller.moving.x != 0)
         {
             if(absVelX < maxVelocity.x)
             {
-                forceX = standing ? speed : speed * airSpeedModifier;
-                renderer2D.flipX = false;
+                var newSpeed = speed * controller.moving.x;
+                forceX = standing ? newSpeed : newSpeed * airSpeedModifier;
+                renderer2D.flipX = forceX < 0;
             }
-        } else if (Input.GetKey("left"))
-        {
-            if(absVelX < maxVelocity.x)
-            {
-                forceX = standing ? -speed : -speed * airSpeedModifier;
-                renderer2D.flipX = true;
-            }
-        }
+        } 
 
         if(absVelY <= standingThreshold){ standing = true; }
         else { standing = false; }
 
-        if (Input.GetKey("up"))
+        if (controller.moving.y != 0)
         {
             if(absVelY < maxVelocity.y)
             {
-                forceY = jetSpeed;
+                forceY = jetSpeed * controller.moving.y;
             }
         }
 
