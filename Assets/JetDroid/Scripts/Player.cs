@@ -26,6 +26,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var absVelX = Mathf.Abs(body2D.velocity.x);
+        var absVelY = Mathf.Abs(body2D.velocity.y);
         var forceX = 0f;
         var forceY = 0f;
 
@@ -42,6 +43,17 @@ public class Player : MonoBehaviour {
             {
                 forceX = standing ? -speed : -speed * airSpeedModifier;
                 renderer2D.flipX = true;
+            }
+        }
+
+        if(absVelY <= standingThreshold){ standing = true; }
+        else { standing = false; }
+
+        if (Input.GetKey("up"))
+        {
+            if(absVelY < maxVelocity.y)
+            {
+                forceY = jetSpeed;
             }
         }
 
