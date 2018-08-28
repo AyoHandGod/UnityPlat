@@ -27,6 +27,15 @@ public class Explode : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D target)
+    {
+        // if object touches an object with the tag Deadly
+        if (target.gameObject.tag == "Deadly")
+        {
+            OnExplode();
+        }
+    }
+
     private void OnExplode()
     {
 
